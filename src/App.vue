@@ -1,30 +1,55 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+export default {
+  name: 'App',
+
+  data() {
+    return {
+      /*toDoList: {
+        text: ['Pranzo amici', 'Reunione con clienti', 'Compito di martedí'],
+        done: true,
+      }*/
+
+      toDoList: [
+        {
+          text: 'Pranzo amici',
+          done: true,
+        },
+        {
+          text: 'Reunione con clienti',
+          done: true,
+        },
+        {
+          text: 'Compito di martedí',
+          done: false,
+        },
+      ]
+    }
+  },
+
+}
+
+
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <header>
+    <h1>To Do List</h1>
+  </header>
+
+  <main>
+    <div>
+      <ul>
+        <li v-for="toDo in toDoList" :class="toDo.done === true ? 'sbarra' : 'nonSbarra'">
+          {{ toDo.text }}
+        </li>
+
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <p>Footer</p>
+  </footer>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+<style></style>
