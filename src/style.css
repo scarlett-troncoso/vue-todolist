@@ -33,3 +33,16 @@ h1 {
 .nonSbarra {
   text-decoration: none;
 }
+
+.itemList {
+  vertical-align: middle;
+  line-height: 2rem;
+}
+
+i {
+  margin: 1rem 1rem;
+}
+
+.d-non {
+  display: none;
+}

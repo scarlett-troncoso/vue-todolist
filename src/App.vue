@@ -13,19 +13,21 @@ export default {
         {
           text: 'Pranzo amici',
           done: true,
+          x: 'fa-regular fa-circle-xmark',
         },
         {
           text: 'Reunione con clienti',
           done: true,
+          x: 'fa-regular fa-circle-xmark',
         },
         {
           text: 'Compito di martedí',
           done: false,
+          x: 'fa-regular fa-circle-xmark',
         },
       ]
     }
   },
-
 }
 
 
@@ -39,9 +41,11 @@ export default {
   <main>
     <div>
       <ul>
-        <li v-for="toDo in toDoList" :class="toDo.done === true ? 'sbarra' : 'nonSbarra'">
+        <li v-for="toDo in toDoList" :class="toDo.done === true ? 'sbarra' : 'nonSbarra'" id="itemList" class="itemList">
           {{ toDo.text }}
+          <i :class="toDo.x" @click="toDo.text = '', toDo.x = ' '"></i>
         </li>
+
 
       </ul>
     </div>
