@@ -4,26 +4,25 @@ export default {
 
   data() {
     return {
-      /*toDoList: {
-        text: ['Pranzo amici', 'Reunione con clienti', 'Compito di martedí'],
-        done: true,
-      }*/
 
       toDoList: [
         {
           text: 'Pranzo amici',
-          done: true,
+          done: false,
           x: 'fa-regular fa-circle-xmark',
+          check: 'check-style',
         },
         {
           text: 'Reunione con clienti',
-          done: true,
+          done: false,
           x: 'fa-regular fa-circle-xmark',
+          check: 'check-style',
         },
         {
           text: 'Compito di martedí',
           done: false,
           x: 'fa-regular fa-circle-xmark',
+          check: 'check-style',
         },
       ]
     }
@@ -41,9 +40,28 @@ export default {
   <main>
     <div>
       <ul>
-        <li v-for="toDo in toDoList" :class="toDo.done === true ? 'sbarra' : 'nonSbarra'" id="itemList" class="itemList">
-          {{ toDo.text }}
-          <i :class="toDo.x" @click="toDo.text = '', toDo.x = ' '"></i>
+        <li class="itemList">
+          <input type="checkbox" @change="toDoList[0].done = true" :class="toDoList[0].check">
+          <p :class="toDoList[0].done === true ? 'sbarra' : 'nonSbarra'">
+            {{ toDoList[0].text }}</p>
+          <i :class="toDoList[0].x" @click="toDoList[0].text = '', toDoList[0].x = ' ', toDoList[0].check = 'd-non'"></i>
+        </li>
+
+
+        <li class="itemList">
+          <input type="checkbox" @change="toDoList[1].done = true" :class="toDoList[1].check">
+          <p :class="toDoList[1].done === true ? 'sbarra' : 'nonSbarra'">
+            {{ toDoList[1].text }}</p>
+          <i :class="toDoList[1].x" @click="toDoList[1].text = '', toDoList[1].x = ' ', toDoList[1].check = 'd-non'"></i>
+        </li>
+
+
+        <li class="itemList">
+          <input type="checkbox" @change="toDoList[2].done = true" :class="toDoList[2].check">
+          <p :class="toDoList[2].done === true ? 'sbarra' : 'nonSbarra'">
+            {{ toDoList[2].text }}</p>
+
+          <i :class="toDoList[2].x" @click="toDoList[2].text = '', toDoList[2].x = ' ', toDoList[2].check = 'd-non'"></i>
         </li>
 
 
