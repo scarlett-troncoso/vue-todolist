@@ -37,6 +37,11 @@ export default {
   </header>
 
   <main>
+
+    <div class="m-1">
+      <label for="addTask" class="m-1">Add task</label>
+      <input type="text" id="addTask">
+    </div>
     <ul v-if="toDoList.length > 0">
       <li v-for="(item, index) in toDoList" class="itemList">
         <!--<input type="checkbox" @change="item.done = true">-->
@@ -44,7 +49,7 @@ export default {
           {{ item.text }}
 
           <span v-on:click="removeItem(index)">
-            <i class="fa-regular fa-circle-xmark"></i>
+            <i class="fa-regular fa-circle-xmark m-1"></i>
           </span>
         </p>
 
