@@ -9,27 +9,26 @@ export default {
         {
           text: 'Pranzo amici',
           done: false,
-          x: 'fa-regular fa-circle-xmark',
-          check: 'check-style',
         },
         {
           text: 'Reunione con clienti',
-          done: false,
-          x: 'fa-regular fa-circle-xmark',
-          check: 'check-style',
+          done: true,
         },
         {
           text: 'Compito di martedí',
-          done: false,
-          x: 'fa-regular fa-circle-xmark',
-          check: 'check-style',
+          done: true,
         },
       ]
     }
   },
+
+  methods: {
+    removeItem(index) {
+      console.log('rimovere questo item', index);
+      this.toDoList.splice(index, 1);
+    }
+  }
 }
-
-
 </script>
 
 <template>
@@ -38,35 +37,23 @@ export default {
   </header>
 
   <main>
-    <div>
-      <ul>
-        <li class="itemList">
-          <input type="checkbox" @change="toDoList[0].done = true" :class="toDoList[0].check">
-          <p :class="toDoList[0].done === true ? 'sbarra' : 'nonSbarra'">
-            {{ toDoList[0].text }}</p>
-          <i :class="toDoList[0].x" @click="toDoList[0].text = '', toDoList[0].x = ' ', toDoList[0].check = 'd-non'"></i>
-        </li>
+    <ul v-if="toDoList.length > 0">
+      <li v-for="(item, index) in toDoList" class="itemList">
+        <!--<input type="checkbox" @change="item.done = true">-->
+        <p :class="item.done ? 'sbarra' : ''">
+          {{ item.text }}
 
+          <span v-on:click="removeItem(index)">
+            <i class="fa-regular fa-circle-xmark"></i>
+          </span>
+        </p>
 
-        <li class="itemList">
-          <input type="checkbox" @change="toDoList[1].done = true" :class="toDoList[1].check">
-          <p :class="toDoList[1].done === true ? 'sbarra' : 'nonSbarra'">
-            {{ toDoList[1].text }}</p>
-          <i :class="toDoList[1].x" @click="toDoList[1].text = '', toDoList[1].x = ' ', toDoList[1].check = 'd-non'"></i>
-        </li>
+      </li>
+    </ul>
 
-
-        <li class="itemList">
-          <input type="checkbox" @change="toDoList[2].done = true" :class="toDoList[2].check">
-          <p :class="toDoList[2].done === true ? 'sbarra' : 'nonSbarra'">
-            {{ toDoList[2].text }}</p>
-
-          <i :class="toDoList[2].x" @click="toDoList[2].text = '', toDoList[2].x = ' ', toDoList[2].check = 'd-non'"></i>
-        </li>
-
-
-      </ul>
-    </div>
+    <p v-else>
+      No task to do
+    </p>
   </main>
 
   <footer>
