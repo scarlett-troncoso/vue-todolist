@@ -43,9 +43,10 @@ export default {
       <input type="text" id="addTask">
     </div>
     <ul v-if="toDoList.length > 0">
-      <li v-for="(item, index) in toDoList" class="itemList">
+      <li v-for="(item, index) in  toDoList " class="itemList">
         <!--<input type="checkbox" @change="item.done = true">-->
-        <p :class="item.done ? 'sbarra' : ''">
+        <!--<p :class="item.done ? 'sbarra' : ''"> --> <!--potrebbe essere anche cosí come ho fatto prima-->
+        <p :class="{ sbarra: item.done }"> <!--mette la class in item.done sólo in quelli che sono true-->
           {{ item.text }}
 
           <span v-on:click="removeItem(index)">
