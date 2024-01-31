@@ -39,7 +39,8 @@ export default {
 
     addTask() {
       console.log('Aggiunge task:', this.newText.text);
-      this.toDoList.unshift(this.newText);
+      const newObject = { ...this.newText } //i tre puntini aggiungono il contenuto del newText
+      this.toDoList.unshift(newObject);//nell array si aggiunge newObject perche newText ancora si deve sempre riempire di nuovo
       this.newText.text = '';
     }
   }
@@ -54,13 +55,16 @@ export default {
   <main>
     <div class="card w-50 m-auto">
       <div class="input-group mt-3 align-items-center justify-content-center">
-        <Button for="addTask" class="btn btn-secondary" @click="addTask">Add task</Button>
+        <button for="addTask" class="btn btn-secondary" @click="addTask">Add task</button>
         <input type="text" id="addTask" v-model="newText.text">
       </div>
 
-      <ul v-if="toDoList.length" class="ul-list">
+      <ul v-if="toDoList.length > 0" class="ul-list">
+
         <li v-for="(item, index) in  toDoList" class="itemList" :class="{ sbarra: item.done }">
-          <!--<input type="checkbox" @change="item.done = true">-->
+
+          <!--<input type="checkbox" v-on:click="item.done = true">-->
+
           <!--<p :class="item.done ? 'sbarra' : ''"> --> <!--potrebbe essere anche cosí come ho fatto prima-->
           <!--mette la class in item.done sólo in quelli che sono true-->
           {{ item.text }}
