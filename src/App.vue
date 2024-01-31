@@ -38,9 +38,9 @@ export default {
     },
 
     addTask() {
-      console.log('Aggiunge task:', this.newText);
+      console.log('Aggiunge task:', this.newText.text);
       this.toDoList.unshift(this.newText);
-      this.newText = '';
+      this.newText.text = '';
     }
   }
 }
