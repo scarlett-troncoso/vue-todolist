@@ -1,29 +1,33 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: rgb(45, 39, 73);
+#app {
+  max-width: 1280px;
+  margin: auto;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  min-width: 320px;
-  min-height: 100vh;
+  background-color: rgb(199, 184, 253);
+  font-family: Georgia;
+  font-weight: bold;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: rgb(86, 57, 137);
+  text-align: center;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0;
-  padding: 2rem;
+button,
+input {
+  border-radius: 8px;
+  border: 2px solid rgb(183, 182, 182);
+  padding: 0.6em 1.2em;
+  height: 2.5rem;
 }
 
 .sbarra {
@@ -37,4 +41,10 @@ h1 {
 
 .m-1 {
   margin: 1rem 1rem;
+}
+
+.ul-list {
+  line-height: 3rem;
+  color: gray;
+  margin: auto;
 }
